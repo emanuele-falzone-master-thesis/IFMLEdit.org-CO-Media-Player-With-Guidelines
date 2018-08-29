@@ -3,20 +3,31 @@
 
 var Promise = require('bluebird');
 
-function Action(options) {
-    this.mediaplayer = options.mediaplayer;
+function Action() { // add "options" parameters if needed
+    // TODO: Global Initialization
+    /*
+    example:
+    this.collection = options.repositories.mail;
+    */
 }
+Action.prototype.run = function (parameters, solve) { // add "onCancel" parameters if needed
+    // Parameters:
+    // parameters['song']
 
-Action.prototype.run = function (parameters, solve) {
-    this.mediaplayer.stop();
-    this.mediaplayer.play(parameters['song']).then(function () {
-        $.notify({ message: 'Change Song' }, { allow_dismiss: true, type: 'success' });
-        solve({
-            event: 'event-change-songdone',
-            data: {
-            }
-        });
+    // TODO: Execution
+    /*
+    example:
+    mail.find({subject: 'Re: ' + data.subject})
+        .then(solve);
+    */
+    // THIS CAN BE REMOVED (BEGIN)
+    $.notify({message: 'Change Song'}, {allow_dismiss: true, type: 'success'});
+    solve({
+        event: 'event-change-songdone', // started
+        data: {
+        }
     });
+    // THIS CAN BE REMOVED (END)
 };
 
 exports.createAction = function (options) {

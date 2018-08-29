@@ -4,5 +4,6 @@
 exports.createRepositories = function (options) {
     return {
     'songs': require('./songs').createRepository(options),
+    'authors': require('./authors').createRepository(options),
     };
 };

@@ -8,6 +8,7 @@ exports.register = function () {
     require('./c-view-container-application').register();
     require('./c-view-container-xor-player').register();
     require('./c-list-songs').register();
+    require('./c-list-authors').register();
     require('./c-view-container-stopped').register();
     require('./c-view-container-playing').register();
     require('./c-details-player-stopped').register();
