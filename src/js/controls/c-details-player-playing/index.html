@@ -4,11 +4,6 @@
 <dl class="dl-horizontal" 
     data-bind="if: item">
         <dt>
-            image
-        </dt>
-        <dd data-bind="text: item()['image']">
-        </dd>
-        <dt>
             Title
         </dt>
         <dd data-bind="text: item()['title']">
@@ -20,4 +15,9 @@
         STOP
     </a>
     <c-system-event-end params="trigger: trigger.bind($data,'system-event-end'), context: context"></c-system-event-end>
+</div>
+<div class="row col-md-8" 
+    data-bind="if: item">
+    <img class="img-rounded" width="100%" 
+        data-bind="attr:{src: 'http://emanuele.falzone.gitlab.io/almostjs-demo-game-data/images/' + item()['image']}">
 </div>
