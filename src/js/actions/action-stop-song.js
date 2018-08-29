@@ -3,31 +3,18 @@
 
 var Promise = require('bluebird');
 
-function Action() { // add "options" parameters if needed
-    // TODO: Global Initialization
-    /*
-    example:
-    this.collection = options.repositories.mail;
-    */
+function Action(options) {
+    this.mediaplayer = options.mediaplayer;
 }
-Action.prototype.run = function (parameters, solve) { // add "onCancel" parameters if needed
-    // Parameters:
-    // parameters['song']
 
-    // TODO: Execution
-    /*
-    example:
-    mail.find({subject: 'Re: ' + data.subject})
-        .then(solve);
-    */
-    // THIS CAN BE REMOVED (BEGIN)
+Action.prototype.run = function (parameters, solve) {
+    this.mediaplayer.stop();
     $.notify({message: 'Stop Song'}, {allow_dismiss: true, type: 'success'});
     solve({
-        event: 'event-stop-song-done', // stopped
+        event: 'event-stop-song-done',
         data: {
         }
     });
-    // THIS CAN BE REMOVED (END)
 };
 
 exports.createAction = function (options) {
