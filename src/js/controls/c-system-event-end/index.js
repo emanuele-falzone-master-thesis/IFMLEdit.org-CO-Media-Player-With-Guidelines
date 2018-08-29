@@ -6,18 +6,28 @@ var ko = require('knockout');
 function ViewModel(params) {
     var self = this;
 
-    // TODO: Setup everything needed to start listening for the event
-    /*
-    example:
-    // let's trigger after 1 second
-    self.timer = setInterval(function(){
-        params.trigger();
-    }, 1000);
-    */
-
     self.context = params.context;
-
     self.trigger = params.trigger;
+    self.player = self.context.mediaplayer;
+
+    function register(howl) {
+        howl.on('end', self.trigger);
+    }
+    function unregister(howl) {
+        howl.off('end', self.trigger);
+    }
+
+    register(self.player.sound());
+
+    var listener = self.player.sound.subscribe(function (howl) {
+        unregister(self.player.sound());
+        register(howl);
+    });
+
+    self.stop = function () {
+        unregister(self.player.sound());
+        listener.dispose();
+    };
 }
 
 ViewModel.prototype.dispose = function() {
