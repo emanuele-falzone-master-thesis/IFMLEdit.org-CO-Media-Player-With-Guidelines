@@ -1,10 +1,10 @@
 <h3>
-    Now Playing
+    PlayerPlaying
 </h3>
 <dl class="dl-horizontal" 
     data-bind="if: item">
         <dt>
-            Title
+            title
         </dt>
         <dd data-bind="text: item()['title']">
         </dd>
@@ -12,6 +12,7 @@
 <div class="row">
     <a class="col-xs-2 btn btn-primary" 
         data-bind="click: trigger.bind($data, 'event-stop')">
-        STOP
+        stop
     </a>
+    <c-system-event-end params="trigger: trigger.bind($data,'system-event-end')"></c-system-event-end>
 </div>

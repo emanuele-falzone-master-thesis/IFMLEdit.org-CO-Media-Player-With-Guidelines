@@ -12,4 +12,5 @@ exports.register = function () {
     require('./c-view-container-playing').register();
     require('./c-details-player-stopped').register();
     require('./c-details-player-playing').register();
+    require('./c-system-event-end').register();
 };

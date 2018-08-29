@@ -9,5 +9,6 @@ exports.createNavigations = function (options) {
         'selected-song': require('./selected-song').createNavigation(options),
         'event-play': require('./event-play').createNavigation(options),
         'event-stop': require('./event-stop').createNavigation(options),
+        'system-event-end': require('./system-event-end').createNavigation(options),
     };
 };
