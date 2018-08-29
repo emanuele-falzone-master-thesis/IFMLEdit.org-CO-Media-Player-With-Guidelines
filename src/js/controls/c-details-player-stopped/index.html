@@ -1,5 +1,5 @@
 <h3>
-    PlayerStopped
+    Now Playing
 </h3>
 <dl class="dl-horizontal" 
     data-bind="if: item">
@@ -9,7 +9,7 @@
         <dd data-bind="text: item()['image']">
         </dd>
         <dt>
-            title
+            Title
         </dt>
         <dd data-bind="text: item()['title']">
         </dd>
@@ -17,6 +17,6 @@
 <div class="row">
     <a class="col-xs-2 btn btn-primary" 
         data-bind="click: trigger.bind($data, 'event-play')">
-        play
+        PLAY
     </a>
 </div>

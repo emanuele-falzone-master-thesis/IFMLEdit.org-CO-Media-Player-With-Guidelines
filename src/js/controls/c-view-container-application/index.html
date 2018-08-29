@@ -1,11 +1,14 @@
 <span>
+    <span class="col-sm-8">
+        <!-- Authors -->
+        <c-list-authors params="context: context">
+        </c-list-authors>
+        <!-- Songs -->
+        <c-list-songs params="context: context">
+        </c-list-songs>
+    </span>
     <!-- Player -->
-    <c-view-container-xor-player params="context: context">
+    <c-view-container-xor-player params="context: context"
+        class="col-sm-4">
     </c-view-container-xor-player>
-    <!-- Songs -->
-    <c-list-songs params="context: context">
-    </c-list-songs>
-    <!-- Authors -->
-    <c-list-authors params="context: context">
-    </c-list-authors>
 </span>
