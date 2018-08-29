@@ -6,7 +6,6 @@ var ko = require('knockout'),
     controls = require('./controls'),
     navigations = require('./navigations'),
     actions = require('./actions'),
-    mediaplayer = require('./mediaplayer'),
     Promise = require('bluebird');
 
 Promise.config({cancellation: true});
@@ -16,13 +15,11 @@ controls.register();
 
 function ApplicationViewModel() {
     // TODO: initialize global state
-    var repos = repositories.createRepositories({}),
-        player = mediaplayer.createMediaPlayer({repositories: repos});
+    var repos = repositories.createRepositories({});
     this.context = {
         repositories: repos,
         navigations: navigations.createNavigations({}),
-        actions: actions.createActions({repositories: repos, mediaplayer: player}),
-        mediaplayer: player,
+        actions: actions.createActions({repositories: repos}),
         vms: {},
         runningActionsByContainer: {}
     };

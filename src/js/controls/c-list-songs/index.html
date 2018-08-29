@@ -3,15 +3,20 @@
     <thead>
         <tr>
             <th>
-                Author
+                #
             </th>
             <th>
-                Title
+                author_name
+            </th>
+            <th>
+                title
             </th>
         </tr>
     </thead>
     <tbody data-bind="foreach: items">
         <tr data-bind="click: $parent.select, css: {'info': $parent.selected() === id}">
+            <td data-bind="text: id">
+            </td>
             <td data-bind="text: $data['author_name']" 
                 style="white-space: pre-wrap;">
             </td>
